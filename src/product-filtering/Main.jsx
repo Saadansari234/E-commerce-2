@@ -8,7 +8,6 @@ import { ProductData } from './Database';
 import Cards from './Card';
 import { createUseStyles } from 'react-jss';
 import { productCode } from './Database';
-import { Container, Grid } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;

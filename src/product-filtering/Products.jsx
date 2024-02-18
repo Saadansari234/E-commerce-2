@@ -22,6 +22,16 @@ const Products = ({productNum}) => {
 
     const filteredProducts = ProductData.filter(elem => elem.id.includes(productNum))
 
+    // const handleAdd= (productid)=>{
+    //    const addedProduct= ProductData.map((elem,index)=>{
+    //      if (index === productid) {
+    //         return elem.is_Add= true
+    //      }
+    //    })
+    //    console.log(addedProduct)
+    // }
+   
+
     return ( 
         <div className={classes.width}>
 
@@ -33,6 +43,7 @@ const Products = ({productNum}) => {
                         title={elem.title}
                         image={elem.imageUrl}
                         productName={elem.title}
+                        onclick={}
                         />
                     )
                    })

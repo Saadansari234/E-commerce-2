@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createUseStyles } from 'react-jss';
 import { Box } from '@mui/material';
-
+import { ProductData } from './Database';
 
 const mystyle = createUseStyles({
   objectfit: {
@@ -17,8 +17,9 @@ const mystyle = createUseStyles({
   }
 })
 
-export default function Cards({ image, title, productName }) {
+export default function Cards({ image, title, productName, onclick }) {
   const classes = mystyle()
+  
   return (
 
     <Card sx={{ maxWidth: 300 }}>
@@ -39,7 +40,7 @@ export default function Cards({ image, title, productName }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add</Button>
+        <Button size="small" onClick={onclick}>Add</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
