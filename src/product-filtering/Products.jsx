@@ -43,7 +43,7 @@ const Products = ({productNum}) => {
                         title={elem.title}
                         image={elem.imageUrl}
                         productName={elem.title}
-                        onclick={}
+                      
                         />
                     )
                    })
