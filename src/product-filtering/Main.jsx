@@ -10,7 +10,7 @@ import { createUseStyles } from 'react-jss';
 import { productCode } from './Database';
 import { useDispatch } from 'react-redux';
 import { addtocart } from '../redux/action/Index';
-
+import { useState } from 'react';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -66,15 +66,20 @@ export default function Main() {
   //   console.log(filteredProducts);
   // }
 
+  // const [disabled, setdisabled]= useState(false)
   const dispatch= useDispatch()
   const handleAdd=(id)=>{
     ProductData.map((elem,index)=>{
-      if (index===id) {
+      if (index===id ) {
         // console.log(elem)
         dispatch(addtocart(elem))
+       
+        console.log(elem)
       }
     })
   }
+
+  
   return (
     <Box
       sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', marginTop:"5rem" }}
@@ -112,7 +117,7 @@ export default function Main() {
         <Box  sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "3rem", }}>
 
           {
-            ProductData.map((elem, index) => { return (<Cards key={index} title={elem.title} image={elem.imageUrl} productName={elem.title} onclick={()=>handleAdd(index)}/>) })
+            ProductData.map((elem, index) => { return (<Cards key={index} title={elem.title} image={elem.imageUrl}   productName={elem.title} onclick={()=>handleAdd(index)}/>) })
           }
         </Box>
       </TabPanel>

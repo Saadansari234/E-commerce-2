@@ -17,7 +17,7 @@ const mystyle = createUseStyles({
   }
 })
 
-export default function Cards({ image, title, productName, onclick }) {
+export default function Cards({ image, title, productName, onclick, disabled }) {
   const classes = mystyle()
   
   return (
@@ -40,7 +40,7 @@ export default function Cards({ image, title, productName, onclick }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={onclick}>Add</Button>
+        <Button size="small"  onClick={onclick}>Add</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
