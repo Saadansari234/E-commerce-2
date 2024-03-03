@@ -1,29 +1,31 @@
-const initialState = {
+export const initialState = {
     AddCart: [],
+    logged: false,
 
 }
-
-
 
 export const addToCart = (state = initialState.AddCart, action) => {
     switch (action.type) {
         case "ADDTOCART":
-            const existingItemIndex = state.findIndex((item) => item.id === action.payload.id);
 
-            // If the item is not already in the cart, add it
-            if (existingItemIndex === -1) {
-              return [
+            return [
                 ...state,
                 action.payload,
-              ];
-            }
-      
-            // If the item is already in the cart, you may want to update its quantity or handle it differently
-            // For now, just return the current state without modification
-            return state;
+            ];
 
-        case "CARTCOUNT":
-             return state.length
+        case "REMOVECART":
+            const newState = [...state];
+            newState.splice(action.payload, 1);
+            return newState;
+
+        default: return state
+    }
+}
+
+export const loginInfo = (state = initialState.logged, action) => {
+    switch (action.type) {
+        case "SIGNIN": return state = true
+        case "SIGNOUT": return state = false
         default: return state
     }
 }

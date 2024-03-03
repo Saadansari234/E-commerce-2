@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createUseStyles } from 'react-jss';
 import { Box } from '@mui/material';
-import { ProductData } from './Database';
 
 const mystyle = createUseStyles({
   objectfit: {
@@ -17,9 +16,9 @@ const mystyle = createUseStyles({
   }
 })
 
-export default function Cards({ image, title, productName, onclick, disabled }) {
+export default function Cards({ image, title, productName, onclick, }) {
   const classes = mystyle()
-  
+
   return (
 
     <Card sx={{ maxWidth: 300 }}>

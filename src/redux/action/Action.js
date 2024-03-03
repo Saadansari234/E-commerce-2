@@ -2,7 +2,9 @@
 
 const Action={
     ADDTOCART:"ADDTOCART",
-    CARTCOUNT:"CARTCOUNT"
+    REMOVECART:"REMOVECART",
+    SIGNIN:"SIGNIN",
+    SIGNOUT:"SIGNOUT",
 }
 
 export default Action

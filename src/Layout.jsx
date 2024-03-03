@@ -1,13 +1,38 @@
 import React from 'react'
-import Index from './product-filtering/Index'
-import Appbar from './app-bar/Appbar'
-import { Box } from '@mui/material'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import Home from './components/Home';
+import ProductDetails from './components/ProductDetails';
+import { useEffect } from 'react';
+import SignIn from './components/Login';
+
+
 const Layout = () => {
+
+  useEffect(() => {
+
+    const isOnDefaultPage = window.location.pathname === '/';
+
+    if (!isOnDefaultPage) {
+      window.location.href = '/';
+    }
+  }, []);
+
+
   return (
-   <Box>
-    <Appbar/>
-    <Index/>
-   </Box>
+    <div>
+    <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/ProductDetails' element={<ProductDetails />} />
+          <Route path='/SignIn' element={<SignIn />} />
+        </Routes>
+    </Router>
+    </div>
   )
 }
 

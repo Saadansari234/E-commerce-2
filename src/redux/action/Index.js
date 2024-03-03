@@ -8,10 +8,23 @@ export const addtocart= (data) =>{
     }
 }
 
-export const cartcount= (data) =>{
+export const removecart= (data) =>{
     return{
-        type:Action.CARTCOUNT,    
+        type:Action.REMOVECART,    
         payload: data
     
+    }
+}
+
+
+export const signin= () =>{
+    return{
+        type:Action.SIGNIN,      
+    }
+}
+
+export const signout= () =>{
+    return{
+        type:Action.SIGNOUT,      
     }
 }
