@@ -5,6 +5,7 @@ const Action={
     REMOVECART:"REMOVECART",
     SIGNIN:"SIGNIN",
     SIGNOUT:"SIGNOUT",
+    SIGNUP: "SIGNUP",
 }
 
 export default Action
