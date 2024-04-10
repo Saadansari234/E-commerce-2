@@ -1,7 +1,7 @@
 export const initialState = {
     AddCart: [],
     logged: false,
-
+    
 }
 
 export const addToCart = (state = initialState.AddCart, action) => {

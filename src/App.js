@@ -5,10 +5,13 @@ import SignIn from "./components/Login";
 
 
 function App() {
-  const loginData = useSelector((state) => state.LOGIN_INFO)
-  return (
-    loginData ? (<Layout/>) : (<SignIn />)
-  );
+  // const loginData = useSelector((state) => state.LOGIN_INFO)
+  // return (
+  //   loginData ? (<Layout/>) : (<SignIn />)
+  // );
+  return(
+    <Layout/>
+  )
 }
 
 export default App;
