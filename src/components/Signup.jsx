@@ -12,10 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { signin } from '../redux/action/Index';
+import { signup } from '../redux/action/Index';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -31,7 +29,7 @@ function Copyright(props) {
     );
 }
 
-
+// sign up data . the prople who are already signin
 // const signupData = [
 //     { Username: "saadansari", password: "saad10" },
 //     { Username: "ahmed", password: "15" },
@@ -41,34 +39,30 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 export default function SignIn() {
-
-
-    // sign up data . the prople who are already signin
-    const signupData = useSelector((state) => {
-        return state.SIGNIN_INFO
-    })
     const dispatch = useDispatch()
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const signinData = {
+        const data = new FormData(event.currentTarget); 
+        const signupData = {
             Username: data.get('Username'),
             password: data.get('password'),
         };
 
-        const matchingUser = signupData.find(
-            (user) => user.Username === signinData.Username && user.password === signinData.password
-        );
-
-        console.log(matchingUser)
-        if (matchingUser) {
-            dispatch(signin())
-            console.log("true")
+        if (signupData.Username.trim() !== "" && signupData.password.trim() !== "") {
+             dispatch(signup())
         }
+        // const matchingUser = signupData.find(
+        //     (user) => user.Username === signinData.Username && user.password === signinData.password
+        // );
+
+        // console.log(matchingUser)
+        // if (matchingUser) {
+        //     dispatch(signin())
+        //     console.log("true")
+        // }
         //   we will add and error for else statement later 
 
     };
-     
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -126,8 +120,8 @@ export default function SignIn() {
                                     Forgot password?
                                 </Link>
                             </Grid>
-                            <Grid item >
-                                <Link href="#" variant="body2" >
+                            <Grid item>
+                                <Link href="#" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>

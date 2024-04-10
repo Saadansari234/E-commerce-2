@@ -28,3 +28,11 @@ export const signout= () =>{
         type:Action.SIGNOUT,      
     }
 }
+
+export const signup= (data) =>{
+    return{
+        type:Action.SIGNUP,     
+        payload: data 
+    }
+}
+
