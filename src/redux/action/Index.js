@@ -29,6 +29,12 @@ export const signout= () =>{
     }
 }
 
+export const activate = () =>{
+    return{
+        type:Action.ACTIVATE,      
+    }
+}
+
 export const signup= (data) =>{
     return{
         type:Action.SIGNUP,     

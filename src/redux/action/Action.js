@@ -6,6 +6,7 @@ const Action={
     SIGNIN:"SIGNIN",
     SIGNOUT:"SIGNOUT",
     SIGNUP: "SIGNUP",
+    ACTIVATE:"ACTIVATE"
 }
 
 export default Action

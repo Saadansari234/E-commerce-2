@@ -1,6 +1,7 @@
 export const initialState = {
     AddCart: [],
     logged: false,
+    activate:false,
     signed: [],
 
 }
@@ -30,6 +31,14 @@ export const loginInfo = (state = initialState.logged, action) => {
         default: return state
     }
 }
+
+export const activateinfo = (state = initialState.activate, action) => {
+    switch (action.type) {
+        case "ACTIVATE": return state = true
+        default: return state
+    }
+}
+
 
 export const signinInfo = (state = initialState.signed, action) => {
     switch (action.type) {

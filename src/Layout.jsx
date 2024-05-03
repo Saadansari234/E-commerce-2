@@ -9,6 +9,7 @@ import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
 import { useEffect } from 'react';
 import SignIn from './components/Login';
+import SignUp from './components/Signup';
 
 
 const Layout = () => {
@@ -29,7 +30,8 @@ const Layout = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/ProductDetails' element={<ProductDetails />} />
-          <Route path='/SignIn' element={<SignIn />} />
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
         </Routes>
     </Router>
     </div>

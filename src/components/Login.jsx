@@ -47,14 +47,18 @@ export default function SignIn() {
     const signupData = useSelector((state) => {
         return state.SIGNIN_INFO
     })
+    
     const dispatch = useDispatch()
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
+        
         const signinData = {
             Username: data.get('Username'),
             password: data.get('password'),
         };
+
+        console.log(signinData)
 
         const matchingUser = signupData.find(
             (user) => user.Username === signinData.Username && user.password === signinData.password
