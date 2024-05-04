@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes,
   Navigate,
@@ -19,21 +19,21 @@ const Layout = () => {
     const isOnDefaultPage = window.location.pathname === '/';
 
     if (!isOnDefaultPage) {
-      window.location.href = '/';
+      window.location.href = '/E-commerce-2';
     }
   }, []);
 
 
   return (
     <div>
-    <Router>
+    <BrowserRouter basename='/E-commerce-2'>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/E-commerce-2' element={<Home />} />
           <Route path='/ProductDetails' element={<ProductDetails />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
         </Routes>
-    </Router>
+    </BrowserRouter>
     </div>
   )
 }
