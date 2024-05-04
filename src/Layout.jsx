@@ -14,21 +14,21 @@ import SignUp from './components/Signup';
 
 const Layout = () => {
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const isOnDefaultPage = window.location.pathname === '/';
+  //   const isOnDefaultPage = window.location.pathname === '/';
 
-    if (!isOnDefaultPage) {
-      window.location.href = '/E-commerce-2';
-    }
-  }, []);
+  //   if (!isOnDefaultPage) {
+  //     window.location.href = '/FilteringApp';
+  //   }
+  // }, []);
 
 
   return (
     <div>
-    <BrowserRouter basename='/E-commerce-2'>
+    <BrowserRouter basename='/FilteringApp'>
         <Routes>
-          <Route path='/E-commerce-2' element={<Home />} />
+          <Route path='/FilteringApp' element={<Home />} />
           <Route path='/ProductDetails' element={<ProductDetails />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
