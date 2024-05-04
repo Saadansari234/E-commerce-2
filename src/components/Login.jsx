@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { signin } from '../redux/action/Index';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -42,6 +43,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 export default function SignIn() {
 
+    const [error, setError] = React.useState(false);
 
     // sign up data . the prople who are already signin
     const signupData = useSelector((state) => {
@@ -51,14 +53,13 @@ export default function SignIn() {
     const dispatch = useDispatch()
     const handleSubmit = (event) => {
         event.preventDefault();
+
         const data = new FormData(event.currentTarget);
         
         const signinData = {
             Username: data.get('Username'),
             password: data.get('password'),
         };
-
-        console.log(signinData)
 
         const matchingUser = signupData.find(
             (user) => user.Username === signinData.Username && user.password === signinData.password
@@ -68,6 +69,8 @@ export default function SignIn() {
         if (matchingUser) {
             dispatch(signin())
             console.log("true")
+        }else{
+            setError(true)
         }
         //   we will add and error for else statement later 
 
@@ -102,7 +105,9 @@ export default function SignIn() {
                             name="Username"
                             autoComplete="off"
                             autoFocus
+                        
                         />
+
                         <TextField
                             margin="normal"
                             required
@@ -112,6 +117,10 @@ export default function SignIn() {
                             type="password"
                             autoComplete="current-password"
                         />
+                        {
+                            error ? <Typography color={"red"} fontSize={'12px'}>wrong username or password. please type again</Typography> : null
+                        }
+                        
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"

@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { signup, activate} from '../redux/action/Index';
+import { signup, activate } from '../redux/action/Index';
 import { useDispatch } from 'react-redux';
 
 
@@ -39,19 +39,29 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 export default function SignUp() {
+
+    const [error, setError] = React.useState(0)
+
     const dispatch = useDispatch()
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget); 
+        const data = new FormData(event.currentTarget);
         const signupData = {
             Username: data.get('Username'),
             password: data.get('password'),
         };
         console.log(signupData)
-        if (signupData.Username.trim() !== "" && signupData.password.trim() !== "") {
-             dispatch(signup(signupData))
-             dispatch(activate())
+        if (signupData.Username.trim() === "" && signupData.password.trim() === "") {
+            setError(1);
+        } else if (signupData.password.length < 8 || signupData.password.length > 20) {
+            setError(2);
+        } else if (!/\d/.test(signupData.password) || !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(signupData.password)) {
+            setError(3); // Error code for password missing number or special character
+        } else {
+            dispatch(signup(signupData));
+            dispatch(activate());
         }
+
         // const matchingUser = signupData.find(
         //     (user) => user.Username === signinData.Username && user.password === signinData.password
         // );
@@ -103,6 +113,11 @@ export default function SignUp() {
                             type="password"
                             autoComplete="current-password"
                         />
+                        <Typography color={"red"} fontSize={'12px'}>
+                               {error === 1 ? 'Username & password must not be empty' :
+                                error === 2 ? 'Password must be at least 8 characters long and no longer than 20' : 
+                                error === 3 ? 'Password must contain special character & numbers ' : null}
+                        </Typography>
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
