@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/E-commerce-2/static/js/main.edd47360.js",
-    "index.html": "/E-commerce-2/index.html",
-    "main.edd47360.js.map": "/E-commerce-2/static/js/main.edd47360.js.map"
+    "main.js": "/FilteringApp/static/js/main.906e53cc.js",
+    "index.html": "/FilteringApp/index.html",
+    "main.906e53cc.js.map": "/FilteringApp/static/js/main.906e53cc.js.map"
   },
   "entrypoints": [
-    "static/js/main.edd47360.js"
+    "static/js/main.906e53cc.js"
   ]
 }
