@@ -13,9 +13,7 @@ function App() {
       signupData==true ? <SignIn /> : <SignUp/>
     )
   );
-  // return(
-  //   <Layout/>
-  // )
+  
 }
 
 export default App;
