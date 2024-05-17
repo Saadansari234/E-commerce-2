@@ -16,6 +16,14 @@ export const removecart= (data) =>{
     }
 }
 
+export const showmenu= () =>{
+    return{
+        type:Action.SHOWMENU,
+    
+    }
+}
+
+
 
 export const signin= () =>{
     return{

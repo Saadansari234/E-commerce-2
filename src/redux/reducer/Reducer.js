@@ -3,7 +3,8 @@ export const initialState = {
     logged: false,
     activate:false,
     signed: [],
-
+    showmenu: false,
+ 
 }
 
 export const addToCart = (state = initialState.AddCart, action) => {
@@ -35,6 +36,13 @@ export const loginInfo = (state = initialState.logged, action) => {
 export const activateinfo = (state = initialState.activate, action) => {
     switch (action.type) {
         case "ACTIVATE": return state = true
+        default: return state
+    }
+}
+
+export const showmenu = (state = initialState.showmenu, action) => {
+    switch (action.type) {
+        case "SHOWMENU": return !state
         default: return state
     }
 }

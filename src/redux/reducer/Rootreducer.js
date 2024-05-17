@@ -1,4 +1,4 @@
-import { addToCart,  loginInfo, signinInfo,activateinfo } from "./Reducer";
+import { addToCart,  loginInfo, signinInfo,activateinfo, showmenu, } from "./Reducer";
 import { combineReducers } from "redux";
 
 const RootReducer= combineReducers({
@@ -6,6 +6,7 @@ const RootReducer= combineReducers({
     LOGIN_INFO:loginInfo,
     SIGNIN_INFO:signinInfo,
     ACTIVATE_INFO:activateinfo,
+    SHOW_MENU_INFO: showmenu,
 })
 
 export default RootReducer

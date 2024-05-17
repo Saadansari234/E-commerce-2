@@ -6,7 +6,8 @@ const Action={
     SIGNIN:"SIGNIN",
     SIGNOUT:"SIGNOUT",
     SIGNUP: "SIGNUP",
-    ACTIVATE:"ACTIVATE"
+    ACTIVATE:"ACTIVATE",
+    SHOWMENU:"SHOWMENU",
 }
 
 export default Action

@@ -9,12 +9,26 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Bucket from './Bucket';
 import { signout } from '../redux/action/Index';
 import { useDispatch } from 'react-redux';
+import { createUseStyles } from 'react-jss';
+import { showmenu } from '../redux/action/Index';
+
+const mystyle = createUseStyles({
+  AppIcon:{
+    display:"none",
+    '@media (max-width: 768px)': {
+      display:"block"
+    },
+  }
+})
+
 
 export default function Appbar() {
   const dispatch= useDispatch()
   const handleLogout=()=>{
     dispatch(signout())
   }
+
+  const classes= mystyle()
 
   return (
     <Box sx={{ flexGrow: 1, backgroundColor:"#BFEA7C" }}>
@@ -26,6 +40,8 @@ export default function Appbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            className={classes.AppIcon}
+            onClick={()=> dispatch(showmenu())}
           >
             <MenuIcon />
           </IconButton>
